@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <code.support.demo.widget.dropdown.DropDownTable
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#ffffff"
+        app:dropdown_iconGravity="LEFT"
+        app:dropdown_iconHeight="18dp"
+        app:dropdown_iconMargin="5dp"
+        app:dropdown_iconWidth="18dp"
+        app:dropdown_tab_space_equal="true"
+        app:dropdown_textSelectColor="#ff8500"
+        app:dropdown_textUnselectColor="#4f4f4f"
+        app:dropdown_textsize="14sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#edeeef"/>
+
+    <!--—————————————————————————分割线————————————————————————-->
+
+    <code.support.demo.widget.dropdown.DropDownLayout
+        android:id="@+id/dropdown"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+
+        <code.support.demo.widget.dropdown.DropMask
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88838685"/>
+
+        <code.support.demo.widget.dropdown.DropMatter
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"/>
+
+    </code.support.demo.widget.dropdown.DropDownLayout>
+
+</LinearLayout>

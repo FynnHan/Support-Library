@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff"
+        android:padding="10.0dip">
+
+        <LinearLayout
+            android:id="@+id/cancel_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_toLeftOf="@+id/select_layout"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                android:textColor="#ff333333"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/select_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="22dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="完成"
+                android:textColor="#ff2fb3ff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="#11112233" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:background="#ffffffff"
+            android:orientation="horizontal"
+            android:paddingBottom="15.0dip"
+            android:paddingLeft="20.0dip"
+            android:paddingRight="20.0dip"
+            android:paddingTop="15.0dip">
+
+            <code.support.demo.widget.PickerView
+                android:id="@+id/year_pv"
+                android:layout_width="0.0dip"
+                android:layout_height="160.0dip"
+                android:layout_weight="3.0" />
+
+            <code.support.demo.widget.PickerView
+                android:id="@+id/month_pv"
+                android:layout_width="0.0dip"
+                android:layout_height="160.0dip"
+                android:layout_weight="2.0"/>
+
+            <code.support.demo.widget.PickerView
+                android:id="@+id/day_pv"
+                android:layout_width="0.0dip"
+                android:layout_height="160.0dip"
+                android:layout_weight="2.0"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

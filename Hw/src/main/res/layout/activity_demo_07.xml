@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#009688"/>
+
+        <code.support.demo.widget.expand.LayoutWeight
+            android:id="@+id/layout_weight"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="#8bc34a"
+            android:padding="16dp"
+            app:exp_duration="1000"
+            app:exp_expanded="false"
+            app:exp_interpolator="anticipateOvershoot">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/google"/>
+        </code.support.demo.widget.expand.LayoutWeight>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#00796b"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dimen_16"
+        android:paddingLeft="@dimen/dimen_8"
+        android:paddingRight="@dimen/dimen_8"
+        android:paddingTop="@dimen/dimen_16"
+        android:visibility="gone">
+
+        <code.support.demo.widget.expand.LayoutRelative
+            android:id="@+id/layout_relative_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:exp_duration="500"
+            app:exp_expanded="false"
+            app:exp_interpolator="fastOutSlowIn"
+            app:exp_orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_ffffff"
+                android:lineSpacingMultiplier="1.3"
+                android:text="古诗有云：小隐隐于野，中隐隐于市，大隐隐于朝。隐于山野，松下静卧，诗茶袅绕，花香氤氲，茶香伴，酒相伴，诗相伴。宁静的灵魂相伴，忘乎所以。也有人说：闲逸潇洒的生活不一定要到林泉野径去才能体会得到，更高层次隐逸生活是在都市繁华之中，在心灵净土独善其身，找到一份宁静。"
+                android:textColor="@color/color_ff000000"
+                android:textSize="16sp"/>
+        </code.support.demo.widget.expand.LayoutRelative>
+
+        <TextView
+            android:id="@+id/overlayText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_ffffff"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.3"
+            android:maxLines="3"
+            android:text="古诗有云：小隐隐于野，中隐隐于市，大隐隐于朝。隐于山野，松下静卧，诗茶袅绕，花香氤氲，茶香伴，酒相伴，诗相伴。宁静的灵魂相伴，忘乎所以。也有人说：闲逸潇洒的生活不一定要到林泉野径去才能体会得到，更高层次隐逸生活是在都市繁华之中，在心灵净土独善其身，找到一份宁静。虽然白居易的《中隐》之中写道：大隐住朝市小隐入丘樊。丘樊太冷落朝市太嚣喧。 唯此中隐士致身吉且安。可我，还是甘愿做一个小隐隐于野之人。"
+            android:textColor="@color/color_ff000000"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <code.support.demo.widget.expand.LayoutRelative
+        android:id="@+id/layout_relative_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ffffff"
+        app:exp_duration="500"
+        app:exp_interpolator="bounce"
+        app:exp_orientation="vertical">
+
+        <TextView
+            android:id="@+id/one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_228fc1"
+            android:gravity="center"
+            android:padding="@dimen/dimen_8"
+            android:text="浴兰汤兮沐芳，华采衣兮若英；\n灵连蜷兮既留，烂昭昭兮未央；\n"
+            android:textColor="@color/color_ff000000"/>
+
+        <TextView
+            android:id="@+id/two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/one"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:padding="@dimen/dimen_8"
+            android:text="謇将憺兮寿宫，与日月兮齐光；\n太龙驾兮帝服，聊翱游兮周章；\n"
+            android:textColor="@color/color_ff000000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/two"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:padding="@dimen/dimen_8"
+            android:text="灵皇皇兮既降，猋远举兮云中；\n览冀洲兮有余，横四海兮焉穷；\n思夫君兮太息，极劳心兮忡忡。\n"
+            android:textColor="@color/color_ff000000"/>
+    </code.support.demo.widget.expand.LayoutRelative>
+
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ApkTool/ApkTool.iml" filepath="$PROJECT_DIR$/ApkTool/ApkTool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hw/Hw.iml" filepath="$PROJECT_DIR$/Hw/Hw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Support-Library.iml" filepath="$PROJECT_DIR$/Support-Library.iml" />
+    </modules>
+  </component>
+</project>

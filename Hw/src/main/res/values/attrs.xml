@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="IndicatorStyle">
+        <attr name="IndicatorTabStyle" format="reference"/>
+        <attr name="IndicatorIconStyle" format="reference"/>
+        <attr name="IndicatorCircleStyle" format="reference"/>
+        <attr name="IndicatorLineStyle" format="reference"/>
+        <attr name="IndicatorTitleStyle" format="reference"/>
+        <attr name="IndicatorUnderLineStyle" format="reference"/>
+    </declare-styleable>
+
+    <attr name="centered" format="boolean"/>
+    <attr name="selectedColor" format="color"/>
+    <attr name="strokeWidth" format="dimension"/>
+    <attr name="unselectedColor" format="color"/>
+
+    <declare-styleable name="IndicatorCircle">
+        <attr name="centered"/>
+        <attr name="fillColor" format="color"/>
+        <attr name="pageColor" format="color"/>
+        <attr name="android:orientation"/>
+        <attr name="radius" format="dimension"/>
+        <attr name="snap" format="boolean"/>
+        <attr name="strokeColor" format="color"/>
+        <attr name="strokeWidth"/>
+        <attr name="android:background"/>
+    </declare-styleable>
+
+    <declare-styleable name="IndicatorLine">
+        <attr name="centered"/>
+        <attr name="unselectedColor"/>
+        <attr name="selectedColor"/>
+        <attr name="lineWidth" format="dimension"/>
+        <attr name="strokeWidth"/>
+        <attr name="gapWidth" format="dimension"/>
+        <attr name="android:background"/>
+    </declare-styleable>
+
+    <declare-styleable name="IndicatorTitle">
+        <attr name="clipPadding" format="dimension"/>
+        <attr name="footerColor" format="color"/>
+        <attr name="footerLineHeight" format="dimension"/>
+        <attr name="footerIndicatorHeight" format="dimension"/>
+        <attr name="footerIndicatorUnderlinePadding" format="dimension"/>
+        <attr name="footerPadding" format="dimension"/>
+        <attr name="selectedColor"/>
+        <attr name="selectedBold" format="boolean"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="titlePadding" format="dimension"/>
+        <attr name="topPadding" format="dimension"/>
+        <attr name="android:background"/>
+        <attr name="footerIndicatorStyle">
+            <enum name="none" value="0"/>
+            <enum name="triangle" value="1"/>
+            <enum name="underline" value="2"/>
+        </attr>
+        <attr name="linePosition">
+            <enum name="bottom" value="0"/>
+            <enum name="top" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="IndicatorUnderline">
+        <attr name="fades" format="boolean"/>
+        <attr name="fadeDelay" format="integer"/>
+        <attr name="fadeLength" format="integer"/>
+        <attr name="selectedColor"/>
+        <attr name="android:background"/>
+    </declare-styleable>
+
+    <declare-styleable name="NavigationTab">
+        <attr name="nt_color" format="color"/>
+        <attr name="nt_size" format="dimension"/>
+        <attr name="nt_weight" format="dimension"/>
+        <attr name="nt_factor" format="float"/>
+        <attr name="nt_titles" format="reference"/>
+        <attr name="nt_inactive_color" format="color"/>
+        <attr name="nt_active_color" format="color"/>
+        <attr name="nt_typeface" format="string"/>
+        <attr name="nt_corners_radius" format="dimension"/>
+        <attr name="nt_animation_duration" format="integer"/>
+        <attr name="nt_type" format="enum">
+            <enum name="line" value="0"/>
+            <enum name="point" value="1"/>
+        </attr>
+        <attr name="nt_gravity" format="enum">
+            <enum name="bottom" value="0"/>
+            <enum name="top" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <!-- MainTabHost -->
+    <declare-styleable name="MainTabHost">
+        <attr name="text_size" format="dimension"/>
+        <attr name="text_select_color" format="color"/>
+        <attr name="text_normal_color" format="color"/>
+        <attr name="item_padding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="DropDownTable">
+        <!--indicator-->
+        <attr name="dropdown_indicator_color" format="color"/>
+        <attr name="dropdown_indicator_height" format="dimension"/>
+        <attr name="dropdown_indicator_width" format="dimension"/>
+        <attr name="dropdown_indicator_margin_left" format="dimension"/>
+        <attr name="dropdown_indicator_margin_top" format="dimension"/>
+        <attr name="dropdown_indicator_margin_right" format="dimension"/>
+        <attr name="dropdown_indicator_margin_bottom" format="dimension"/>
+        <attr name="dropdown_indicator_corner_radius" format="dimension"/>
+        <attr name="dropdown_indicator_gravity" format="enum">
+            <enum name="TOP" value="48"/>
+            <enum name="BOTTOM" value="80"/>
+        </attr>
+        <attr name="dropdown_indicator_style" format="enum">
+            <enum name="NORMAL" value="0"/>
+            <enum name="TRIANGLE" value="1"/>
+            <enum name="BLOCK" value="2"/>
+        </attr>
+        <attr name="dropdown_indicator_anim_enable" format="boolean"/>
+        <attr name="dropdown_indicator_anim_duration" format="integer"/>
+        <attr name="dropdown_indicator_bounce_enable" format="boolean"/>
+
+        <!-- underline -->
+        <attr name="dropdown_underline_color" format="color"/>
+        <attr name="dropdown_underline_height" format="dimension"/>
+        <attr name="dropdown_underline_gravity" format="enum">
+            <enum name="TOP" value="48"/>
+            <enum name="BOTTOM" value="80"/>
+        </attr>
+
+        <!-- divider -->
+        <attr name="dropdown_divider_color" format="color"/>
+        <attr name="dropdown_divider_width" format="dimension"/>
+        <attr name="dropdown_divider_padding" format="dimension"/>
+
+        <!-- tab -->
+        <attr name="dropdown_tab_padding" format="dimension"/>
+        <attr name="dropdown_tab_space_equal" format="boolean"/>
+        <attr name="dropdown_tab_width" format="dimension"/>
+
+        <!-- icon -->
+        <attr name="dropdown_iconWidth" format="dimension"/>
+        <attr name="dropdown_iconHeight" format="dimension"/>
+        <attr name="dropdown_iconVisible" format="boolean"/>
+        <attr name="dropdown_iconGravity" format="enum">
+            <enum name="LEFT" value="3"/>
+            <enum name="TOP" value="48"/>
+            <enum name="RIGHT" value="5"/>
+            <enum name="BOTTOM" value="80"/>
+        </attr>
+        <attr name="dropdown_iconMargin" format="dimension"/>
+        <attr name="lineVertical" format="boolean"/>
+
+        <!-- title -->
+        <attr name="dropdown_textsize" format="dimension"/>
+        <attr name="dropdown_textSelectColor" format="color"/>
+        <attr name="dropdown_textUnselectColor" format="color"/>
+        <attr name="dropdown_textBold" format="boolean"/>
+        <attr name="dropdown_textAllCaps" format="boolean"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="MsgView">
+        <!-- 圆角矩形背景色 -->
+        <attr name="mv_backgroundColor" format="color"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="mv_cornerRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="mv_strokeWidth" format="dimension"/>
+        <!-- 圆角边框颜色-->
+        <attr name="mv_strokeColor" format="color"/>
+        <!-- 圆角弧度是高度一半-->
+        <attr name="mv_isRadiusHalfHeight" format="boolean"/>
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="mv_isWidthHeightEqual" format="boolean"/>
+    </declare-styleable>
+
+    <!-- ExpandableLayout -->
+    <declare-styleable name="Expandable">
+        <attr name="exp_duration" format="integer"/>
+        <attr name="exp_expanded" format="boolean"/>
+        <attr name="exp_defaultChildIndex" format="integer"/>
+        <attr name="exp_defaultPosition" format="dimension"/>
+        <attr name="exp_orientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="exp_interpolator" format="enum">
+            <enum name="accelerateDecelerate" value="0"/>
+            <enum name="accelerate" value="1"/>
+            <enum name="anticipate" value="2"/>
+            <enum name="anticipateOvershoot" value="3"/>
+            <enum name="bounce" value="4"/>
+            <enum name="decelerate" value="5"/>
+            <enum name="fastOutLinearIn" value="6"/>
+            <enum name="fastOutSlowIn" value="7"/>
+            <enum name="linear" value="8"/>
+            <enum name="linearOutSlowIn" value="9"/>
+            <enum name="overshoot" value="10"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

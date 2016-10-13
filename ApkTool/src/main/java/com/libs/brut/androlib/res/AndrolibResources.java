@@ -214,6 +214,7 @@ final public class AndrolibResources {
     }
 
     public void decode(ResTable resTable, ExtFile apkFile, File outDir) throws AndrolibException {
+        // 和AndroidManifest.xml的格式差不多，所以使用的解析类都一样的
         Duo<ResFileDecoder, AXmlResourceParser> duo = getResFileDecoder();
         ResFileDecoder fileDecoder = duo.m1;
         ResAttrDecoder attrDecoder = duo.m2.getAttrDecoder();
@@ -252,6 +253,7 @@ final public class AndrolibResources {
             for (ResValuesFile valuesFile : pkg.listValuesFiles()) {
                 generateValuesFile(valuesFile, out, xmlSerializer);
             }
+            // 生成一个重要的文件public.xml
             generatePublicXml(pkg, out, xmlSerializer);
         }
 

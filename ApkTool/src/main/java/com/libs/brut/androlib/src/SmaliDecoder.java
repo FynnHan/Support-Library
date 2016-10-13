@@ -51,6 +51,7 @@ public class SmaliDecoder {
                 options.jobs = 6;
             }
 
+            // 这里就需要借助处理dex字节码的jar包：dexlib
             // create the dex
             DexBackedDexFile dexFile = DexFileFactory.loadDexFile(mApkFile, mDexFile, mApi, false);
 
@@ -59,10 +60,10 @@ public class SmaliDecoder {
             }
 
             if (dexFile instanceof DexBackedOdexFile) {
-                options.inlineResolver =
-                        InlineMethodResolver.createInlineMethodResolver(((DexBackedOdexFile) dexFile).getOdexVersion());
+                options.inlineResolver = InlineMethodResolver.createInlineMethodResolver(((DexBackedOdexFile) dexFile).getOdexVersion());
             }
 
+            // 交给baksmali工具里处理生成smali文件
             baksmali.disassembleDexFile(dexFile, options);
         } catch (IOException ex) {
             throw new AndrolibException(ex);

@@ -63,10 +63,12 @@ public class ApkDecoder {
         File outDir = getOutDir();
         AndrolibResources.sKeepBroken = mKeepBrokenResources;
 
+        // 如果输出目录不是因为删除而不存在就抛出异常
         if (!mForceDelete && outDir.exists()) {
             throw new OutDirExistsException();
         }
 
+        // 如果apk文件不是文件类型或者不能读也抛出异常
         if (!mApkFile.isFile() || !mApkFile.canRead()) {
             throw new InFileNotFoundException();
         }
@@ -80,18 +82,22 @@ public class ApkDecoder {
 
         LOGGER.info("Using Apktool " + Androlib.getVersion() + " on " + mApkFile.getName());
 
+        // 如果需要解析资源文件的话
         if (hasResources()) {
             switch (mDecodeResources) {
                 case DECODE_RESOURCES_NONE:
+                    // 解析非arsc格式的文件，一般是libs,assets,raw目录下的文件，直接copy就可以了
                     mAndrolib.decodeResourcesRaw(mApkFile, outDir);
                     break;
                 case DECODE_RESOURCES_FULL:
                     setTargetSdkVersion();
-                    setAnalysisMode(mAnalysisMode, true);
+                    setAnalysisMode(mAnalysisMode, true);// 参数为true，影响mResTable的取值
 
+                    // 如果需要解析AndroidManifest.xml的话就开始解析
                     if (hasManifest()) {
                         mAndrolib.decodeManifestWithResources(mApkFile, outDir, getResTable());
                     }
+                    // 开始解析resource.arsc文件
                     mAndrolib.decodeResourcesFull(mApkFile, outDir, getResTable());
                     break;
             }
@@ -104,8 +110,7 @@ public class ApkDecoder {
                         mAndrolib.decodeManifestRaw(mApkFile, outDir);
                         break;
                     case DECODE_RESOURCES_FULL:
-                        mAndrolib.decodeManifestFull(mApkFile, outDir,
-                                getResTable());
+                        mAndrolib.decodeManifestFull(mApkFile, outDir, getResTable());
                         break;
                 }
             }
@@ -117,18 +122,20 @@ public class ApkDecoder {
                     mAndrolib.decodeSourcesRaw(mApkFile, outDir, "classes.dex");
                     break;
                 case DECODE_SOURCES_SMALI:
+                    // 解析dex文件，变成smali源码，如果不需要解析的话，直接copy classes.dex即可
                     mAndrolib.decodeSourcesSmali(mApkFile, outDir, "classes.dex", mBakDeb, mApi);
                     break;
             }
         }
 
+        // 现在很多大型的apk都有分包的功能，就是包含多个dex文件，这里做了多个dex的解析
         if (hasMultipleSources()) {
             // foreach unknown dex file in root, lets disassemble it
             Set<String> files = mApkFile.getDirectory().getFiles(true);
             for (String file : files) {
                 if (file.endsWith(".dex")) {
-                    if (! file.equalsIgnoreCase("classes.dex")) {
-                        switch(mDecodeSources) {
+                    if (!file.equalsIgnoreCase("classes.dex")) {
+                        switch (mDecodeSources) {
                             case DECODE_SOURCES_NONE:
                                 mAndrolib.decodeSourcesRaw(mApkFile, outDir, file);
                                 break;
@@ -163,7 +170,7 @@ public class ApkDecoder {
         mDecodeResources = mode;
     }
 
-    public void setAnalysisMode(boolean mode, boolean pass) throws AndrolibException{
+    public void setAnalysisMode(boolean mode, boolean pass) throws AndrolibException {
         mAnalysisMode = mode;
 
         // only set mResTable, once it exists
@@ -210,9 +217,8 @@ public class ApkDecoder {
         if (mResTable == null) {
             boolean hasResources = hasResources();
             boolean hasManifest = hasManifest();
-            if (! (hasManifest || hasResources)) {
-                throw new AndrolibException(
-                        "Apk doesn't contain either AndroidManifest.xml file or resources.arsc file");
+            if (!(hasManifest || hasResources)) {
+                throw new AndrolibException("Apk doesn't contain either AndroidManifest.xml file or resources.arsc file");
             }
             mResTable = mAndrolib.getResTable(mApkFile, hasResources);
         }
@@ -232,7 +238,7 @@ public class ApkDecoder {
             Set<String> files = mApkFile.getDirectory().getFiles(false);
             for (String file : files) {
                 if (file.endsWith(".dex")) {
-                    if (! file.equalsIgnoreCase("classes.dex")) {
+                    if (!file.equalsIgnoreCase("classes.dex")) {
                         return true;
                     }
                 }
@@ -278,6 +284,7 @@ public class ApkDecoder {
         meta.version = Androlib.getVersion();
         meta.apkFileName = mApkFile.getName();
 
+        // 如果要反编译资源并且有资源文件或者manifest.xml文件
         if (mDecodeResources != DECODE_RESOURCES_NONE && (hasManifest() || hasResources())) {
             meta.isFrameworkApk = mAndrolib.isFrameworkApk(getResTable());
             putUsesFramework(meta);
@@ -286,8 +293,8 @@ public class ApkDecoder {
             putVersionInfo(meta);
             putSharedLibraryInfo(meta);
         }
-        putUnknownInfo(meta);
-        putFileCompressionInfo(meta);
+        putUnknownInfo(meta);// 加入Unknown文件目录说明
+        putFileCompressionInfo(meta);// 将meta数据写入apktool.xml，最终写入到输出目录（用于回编译）
 
         mAndrolib.writeMetaFile(mOutDir, meta);
     }
@@ -327,7 +334,8 @@ public class ApkDecoder {
         int id = getResTable().getPackageId();
         try {
             id = getResTable().getPackage(renamed).getId();
-        } catch (UndefinedResObject ignored) {}
+        } catch (UndefinedResObject ignored) {
+        }
 
         if (Strings.isNullOrEmpty(original)) {
             return;

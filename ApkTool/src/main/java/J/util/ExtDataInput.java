@@ -51,7 +51,8 @@ public class ExtDataInput extends DataInputDelegate {
         int got = readInt();
 
         if (got == possible) {
-            skipCheckChunkTypeInt(expected, -1);
+//            skipCheckChunkTypeInt(expected, -1);
+            skipCheckChunkTypeInt(expected, possible);// 一直检测，而且使用possible的值作比较
         } else if (got != expected) {
             throw new IOException(String.format("Expected: 0x%08x, got: 0x%08x", expected, got));
         }

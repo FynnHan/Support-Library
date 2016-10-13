@@ -59,6 +59,11 @@ public final class ResTypeSpec {
     }
 
     public void addResSpec(ResResSpec spec) throws AndrolibException {
+        // 如果存在了一个res spec就直接返回，修复qq反编译问题
+        if (mResSpecs.containsKey(spec.getName())) {
+            return;
+        }
+
         if (mResSpecs.put(spec.getName(), spec) != null) {
             throw new AndrolibException(String.format("Multiple res specs: %s/%s", getName(), spec.getName()));
         }

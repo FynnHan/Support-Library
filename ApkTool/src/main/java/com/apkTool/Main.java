@@ -372,6 +372,7 @@ public class Main {
     }
 
     private static void cmdDecode(CommandLine cli) throws AndrolibException {
+        // 反编译核心类
         ApkDecoder decoder = new ApkDecoder();
 
         int paraCount = cli.getArgList().size();

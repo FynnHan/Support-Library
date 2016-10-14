@@ -43,7 +43,7 @@ public class Main {
          */
 
         // 反编译命令
-        args = new String[]{"d", "-f", "ApkTool/apk/weixin.apk", "-o", "ApkTool/out"};
+        args = new String[]{"d", "-f", "ApkTool/apk/qq.apk", "-o", "ApkTool/out"};
 
         // 回编译命令
         // args = new String[]{"b", "out", "-o", "apk/zhifubao_build.apk"};

@@ -78,8 +78,10 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity android:name=".Test.TestActivity_8" />
+
         <activity
-            android:name=".Test.TestActivity_8">
+            android:name=".Test.TestActivity_9">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
